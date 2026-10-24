@@ -13,6 +13,7 @@ function getUserId(req: Request): string {
 }
 
 export async function createOrder(req: Request, res: Response): Promise<void> {
+  console.log("request ", req.body);
   const userId = getUserId(req);
 
   const parsedBody = orderBodySchema.safeParse(req.body);

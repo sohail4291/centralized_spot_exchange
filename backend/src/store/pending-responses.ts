@@ -8,10 +8,7 @@ interface PendingResponse {
 
 const pendingResponses = new Map<string, PendingResponse>();
 
-export function waitForEngineResponse(
-  correlationId: string,
-  timeoutMs: number,
-): Promise<EngineResponse> {
+export function waitForEngineResponse(  correlationId: string,  timeoutMs: number,): Promise<EngineResponse> {
   return new Promise((resolve, reject) => {
     const timeout = setTimeout(() => {
       pendingResponses.delete(correlationId);

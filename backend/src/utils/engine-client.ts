@@ -26,10 +26,7 @@ export async function pingRedis(): Promise<string> {
   return publisher.ping();
 }
 
-export async function sendToEngine(
-  type: EngineCommandType,
-  payload: Record<string, unknown>,
-): Promise<EngineResponse> {
+export async function sendToEngine(  type: EngineCommandType,  payload: Record<string, unknown>,): Promise<EngineResponse> {
   const correlationId = crypto.randomUUID();
   const responsePromise = waitForEngineResponse(correlationId, env.engineTimeoutMs);
 
